@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+
+
+
+
+
+*{
+            font-family:Nunito;
+}
+#menuPhone {
+  display: none; /* Caché par défaut, affiché en responsive */
+
+}
+
+/* Afficher le menu en responsive */
+@media (max-width: 600px) {
+  #menuPhone {
+    display: block;
+    position: fixed;
+    
+    width:100%;
+    height:100%;
+
+    
+
+
+
+
+  }
+
+  #menuPhone .header-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    margin-top: 50%;
+    padding: 20px;
+  }
+
+  #menuPhone .header-center a {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    font-size: 23px;
+    text-decoration: none;
+    color: #000000;
+    transition: color 0.3s;
+    
+    
+  }
+
+  
+
+  #menuPhone .header-center a:not(:last-child) {
+    border-bottom: 1px solid #eee;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+  }
+
+  
+}
+
+.close-icon{
+    right:0;
+    position:absolute;
+    margin-right: 70px;
+    margin-top: 70px;
+    font-size: 30px;
+    color: #ffd700;
+
+
+}
+
+
+
+</style>
+</head>
+<div id="AllPages">
+    
+    <div id="menuPhone">
+        <a href="javascript:void(0);" class="close-icon" onclick="closeMenu()">
+            <i class="fas fa-times"></i>
+        </a>
+        <nav class="header-center" id="myTopnav">
+            <a href="#accueil"></i>Accueil</a>
+            <a href="#services"></i>Services</a>
+            <a href="#presentation"></i>Présentation</a>
+            <a href="#galeriesect"></i>Galerie</a>
+            <a href="#contact"></i>Contact</a>
+        </nav>
+    </div>
+
+</div>
+
+
+<html>
