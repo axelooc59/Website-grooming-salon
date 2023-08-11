@@ -33,6 +33,76 @@
         document.addEventListener("DOMContentLoaded", function() {
 
 
+
+            const navLinks = document.querySelectorAll("nav a");
+
+            window.addEventListener("scroll", () => {
+                const sections = document.querySelectorAll("section");
+                const currentSectionId = getCurrentSections(sections);
+                setActiveLink(currentSectionId);
+            });
+
+            function getCurrentSections(sections) {
+                for (const section of sections) {
+                    const rect = section.getBoundingClientRect();
+                    
+                    if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+                        return section.id;
+                    }
+                }
+                return null;
+            }
+
+            function setActiveLink(activeSectionId) {
+                navLinks.forEach(link => {
+                    if (link.getAttribute("href") === "#" + activeSectionId) {
+                        link.classList.add("active2");
+                        //split link by / and keep the last element
+                        var link=link.href.split('/').pop();
+                        //console.log("adding active class to "+activeSectionId)
+                    } else {
+                        //console.log("removing active class from "+activeSectionId)
+                        link.classList.remove("active2");
+                    }
+                });
+            }
+
+
+
+            // function detectCurrentSection() {
+            // const sections = document.querySelectorAll("section");
+            
+            // window.addEventListener("scroll", () => {
+            //     const currentSection = getCurrentSections(sections);
+                
+            //     if (currentSection) {
+            //         console.log("You are in section:", currentSection.id);
+            //     }
+//             });
+// }
+
+            
+
+            // Appeler la fonction pour démarrer la détection
+            // detectCurrentSection();
+
+
+
+
+
+
+
+
+
+
+
+            // Définir le lien actif au chargement initial
+            // window.addEventListener("load", () => {
+            //     const currentSectionId = getCurrentSectionId();
+            //     setActiveLink(currentSectionId);
+            // });
+
+
             let prevScrollPos = window.scrollY;
 
             window.addEventListener('scroll', () => {
@@ -40,7 +110,7 @@
             
             if (currentScrollPos < prevScrollPos) {
                 // User is scrolling up
-                console.log('Scrolling up');
+                //console.log('Scrolling up');
                 //if width of screen is less than 600px
                 var header=document.querySelector('header');
                 ///change z-index of header
@@ -53,7 +123,7 @@
                 // Add your code to handle scrolling up here
             } else {
                 // User is scrolling down
-                console.log('Scrolling down');
+                //console.log('Scrolling down');
                 var header=document.querySelector('header');
                 ///change z-index of header
                 header.style.zIndex = "2";
@@ -167,6 +237,10 @@
 
         }
 
+        .active2{
+            color: #ffd700;
+        }
+
         nav a {
             color: #fff;
             text-decoration: none;
@@ -188,6 +262,9 @@
             
         
         }
+
+
+        
 
         section {
             padding: 2rem;
@@ -442,7 +519,7 @@ h2 {
 }
 
 
-#servicesExtra {
+.servicesExtra {
   display: flex;
   justify-content: space-around; /* Pour espacer les images horizontalement */
   align-items: center; /* Pour aligner les images verticalement au centre */
@@ -456,7 +533,7 @@ h2 {
     margin-top: 30px;}
 
 @media (max-width: 750px) {
-  #servicesExtra {
+  .servicesExtra {
     flex-direction: column; /* Afficher les images en colonne */
   }
 }
@@ -744,20 +821,20 @@ section#contact p{
         <h2>Nos Services</h2>
         <div class="centered">
             <ul class="services-list">
-                <li><i class="fas fa-paw"></i> Tonte à la tondeuse</li>
+                <li><i class="fas fa-paw"></i> Coupe par tondeuse Aesculap (marque professionnelle)</li>
                 <li><i class="fas fa-paw"></i> Coupe au ciseau ✂️</li>
                 <li><i class="fas fa-paw"></i> Brossage et démêlage</li>
-                <li><i class="fas fa-paw"></i> Bain avec shampoing antiparasitaire <br>(uniquement pour chien)</li>
+                <li><i class="fas fa-paw"></i> Bain 🛁avec shampoing protéiné à l'huile de vison et l'aloé vera ou antiparasitaire <br>(uniquement pour chien)</li>
                 <li><i class="fas fa-paw"></i> Coupes de griffes</li>
                 <li><i class="fas fa-paw"></i> Brushing complet</li>
                 <li><i class="fas fa-paw"></i> Épilations et nettoyage des oreilles</li>
-                <li><i class="fas fa-paw"></i> Tour des pattes</li>
+                <li><i class="fas fa-paw"></i> Tour des pattes 🐾</li>
                 <li><i class="fas fa-paw"></i> Prise à domicile de votre animal (10km max et supplément de 5€)</li>
             </ul>
         </div>
-    </section>
+    
 
-    <section id="servicesExtra">
+    <div class="servicesExtra">
         <div class="image-container">
         <img src="images/1.png" alt="Image 1">
         <h3>Coupe</h3>
@@ -771,13 +848,14 @@ section#contact p{
         <div class="image-container">
         <img src="images/3.png" alt="Image 3">
         <h3>Professionnalisme</h3>
-        <p>Offrez à votre animal une expérience de toilettage avec un professionnel dévoué, qui prend soin de vos compagnons à quatre pattes avec habileté, amour et passion.</p>
+        <p>Offrez à votre animal une expérience de toilettage avec une professionnelle dévouée, qui prend soin de vos compagnons à quatre pattes avec habileté, amour et passion.</p>
         </div>
         <div id="bienetre" class="image-container">
         <img src="images/4.png" alt="Image 4">
         <h3>Bien-être</h3>
         <p>Votre fidèle ami sera choyé et dorloté lors de son toilettage, ce qui lui permettra de se détendre et d'être en meilleure santé.</p>
         </div>
+    </div>
     </section>
 
 
@@ -799,7 +877,7 @@ section#contact p{
             
             
             <p id ='presentation' class="paragraph-container">Je suis Anne, la toiletteuse de votre salon de toilettage <b>Le Caniche Royal</b>. Avec plus de 23 années d'expérience dans le toilettage canin, je suis passionnée par le bien-être et le confort de chaque chien et chat que j'accueille dans mon salon.
-            Mon objectif est de faire en sorte que chaque séance de toilettage soit une expérience agréable pour votre chien, en utilisant des techniques douces et des produits adaptés à la peau et au pelage de chaque animal. Lors de mes prestations, je privilégie d'ailleurs la coupe au ciseau.</p>
+            Mon objectif est de faire en sorte que chaque séance de toilettage soit une expérience agréable pour votre animal, en utilisant des techniques douces et des produits adaptés à la peau et au pelage de chaque animal. Lors de mes prestations, je privilégie d'ailleurs la coupe au ciseau.</p>
             <!-- Ajoutez plus d'informations sur vous en tant que toiletteuse -->
         </div>
         </section>
@@ -820,13 +898,13 @@ section#contact p{
                 <a href="https://i.ibb.co/Qftw0DX/cat.jpg" data-lightbox="dogs" data-title="le persan">
                     <img class='pic' src="https://i.ibb.co/Qftw0DX/cat.jpg" alt="Image 6">
                 </a>
-                <a href="https://scontent-cdg4-3.xx.fbcdn.net/v/t1.6435-9/52117875_1863254470445729_1614364110760181760_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=uKpR_I_FExoAX_0fRl6&_nc_ht=scontent-cdg4-3.xx&oh=00_AfDGuP9jGAae_d6nbesF7EAQ3XiHZfDsDqwaPr1Qk-f0iQ&oe=64EF984C" data-lightbox="dogs" data-title="le samoyede">
+                <a href="https://scontent-cdg4-3.xx.fbcdn.net/v/t1.6435-9/52117875_1863254470445729_1614364110760181760_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=uKpR_I_FExoAX_0fRl6&_nc_ht=scontent-cdg4-3.xx&oh=00_AfDGuP9jGAae_d6nbesF7EAQ3XiHZfDsDqwaPr1Qk-f0iQ&oe=64EF984C" data-lightbox="dogs" data-title="l'heure du bain !">
                     <img class='pic' src="https://scontent-cdg4-3.xx.fbcdn.net/v/t1.6435-9/52117875_1863254470445729_1614364110760181760_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=uKpR_I_FExoAX_0fRl6&_nc_ht=scontent-cdg4-3.xx&oh=00_AfDGuP9jGAae_d6nbesF7EAQ3XiHZfDsDqwaPr1Qk-f0iQ&oe=64EF984C" alt="Image 3">
                 </a>
                 <a href="https://i.ibb.co/WH7TRZs/caniche.jpg" data-lightbox="dogs" data-title="le caniche noir">
                     <img class='pic' src="https://i.ibb.co/WH7TRZs/caniche.jpg" alt="Image 4">
                 </a>
-                <a href="https://scontent-cdg4-2.xx.fbcdn.net/v/t1.6435-9/37072685_1574123279358851_8847497132131745792_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=vw1i1eb7p9wAX-cJDhu&_nc_ht=scontent-cdg4-2.xx&oh=00_AfDy-ykIK9zLimph1AcA_QH8qSbpAxYxnd4FXbPP3tGJtA&oe=64EF8D79" data-lightbox="dogs" data-title="le samoyede">
+                <a href="https://scontent-cdg4-2.xx.fbcdn.net/v/t1.6435-9/37072685_1574123279358851_8847497132131745792_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=vw1i1eb7p9wAX-cJDhu&_nc_ht=scontent-cdg4-2.xx&oh=00_AfDy-ykIK9zLimph1AcA_QH8qSbpAxYxnd4FXbPP3tGJtA&oe=64EF8D79" data-lightbox="dogs" data-title="le samoyède">
                     <img id='samo' class='pic' src="https://scontent-cdg4-2.xx.fbcdn.net/v/t1.6435-9/37072685_1574123279358851_8847497132131745792_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=vw1i1eb7p9wAX-cJDhu&_nc_ht=scontent-cdg4-2.xx&oh=00_AfDy-ykIK9zLimph1AcA_QH8qSbpAxYxnd4FXbPP3tGJtA&oe=64EF8D79" alt="Image 1">
                 </a>
                 
