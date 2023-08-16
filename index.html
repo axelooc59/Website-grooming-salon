@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -1007,3 +1008,1014 @@ section#contact p{
 </body>
 
 </html>
+=======
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Site vitrine pour Salon de toilettage,situé dans le nord de la france à Nieppe.Proche d'Armentières,Nous proposons des services pour toutes races de chiens et chats,bain,coupe,tonte.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Caniche Royal : Salon de Toilettage </title>
+    <link rel="icon" href="./images/logo.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/js/lightbox.min.js" type="text/javascript"></script> 
+
+    <script>
+        function scrollToTop() {
+            console.log("Scrolling to top");
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        }
+        function FunctNav() {
+            var x = document.getElementById("myTopnavPhone");
+            if (x.className === "header-centerPhone") {
+            x.className += " responsive";
+            } else {
+            x.className = "header-centerPhone";
+            }
+        }
+        
+        
+        document.addEventListener("DOMContentLoaded", function() {
+
+
+
+            const navLinks = document.querySelectorAll("nav a");
+
+            window.addEventListener("scroll", () => {
+                const sections = document.querySelectorAll("section");
+                const currentSectionId = getCurrentSections(sections);
+                setActiveLink(currentSectionId);
+            });
+
+            function getCurrentSections(sections) {
+                for (const section of sections) {
+                    const rect = section.getBoundingClientRect();
+                    
+                    if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+                        return section.id;
+                    }
+                }
+                return null;
+            }
+
+            function setActiveLink(activeSectionId) {
+                navLinks.forEach(link => {
+                    if (link.getAttribute("href") === "#" + activeSectionId) {
+                        link.classList.add("active2");
+                        //split link by / and keep the last element
+                        var link=link.href.split('/').pop();
+                        //console.log("adding active class to "+activeSectionId)
+                    } else {
+                        //console.log("removing active class from "+activeSectionId)
+                        link.classList.remove("active2");
+                    }
+                });
+            }
+
+
+
+            // function detectCurrentSection() {
+            // const sections = document.querySelectorAll("section");
+            
+            // window.addEventListener("scroll", () => {
+            //     const currentSection = getCurrentSections(sections);
+                
+            //     if (currentSection) {
+            //         console.log("You are in section:", currentSection.id);
+            //     }
+//             });
+// }
+
+            
+
+            // Appeler la fonction pour démarrer la détection
+            // detectCurrentSection();
+
+
+
+
+
+
+
+
+
+
+
+            // Définir le lien actif au chargement initial
+            // window.addEventListener("load", () => {
+            //     const currentSectionId = getCurrentSectionId();
+            //     setActiveLink(currentSectionId);
+            // });
+
+
+            let prevScrollPos = window.scrollY;
+
+            window.addEventListener('scroll', () => {
+            const currentScrollPos = window.scrollY;
+            
+            if (currentScrollPos < prevScrollPos) {
+                // User is scrolling up
+                //console.log('Scrolling up');
+                //if width of screen is less than 600px
+                var header=document.querySelector('header');
+                ///change z-index of header
+                header.style.zIndex = "4";
+
+
+
+
+                
+                // Add your code to handle scrolling up here
+            } else {
+                // User is scrolling down
+                //console.log('Scrolling down');
+                var header=document.querySelector('header');
+                ///change z-index of header
+                header.style.zIndex = "2";
+            }
+            
+            prevScrollPos = currentScrollPos;
+            });
+
+            
+            window.onscroll = function() {
+            scrollFunction();
+            };
+
+            function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("scrollToTopButton").style.display = "block";
+            } else {
+                document.getElementById("scrollToTopButton").style.display = "none";
+            }
+            }
+
+            
+            // const topbutton=document.getElementById('scrollToTopButton');
+            // topbutton.addEventListener("onclick()", scrollToTop);
+            function playBarkingSound() {
+            console.log("Playing barking sound");
+            barkingSound.play();
+}
+            const barkingSound = document.getElementById("barking-sound");
+            const questions = document.querySelectorAll("#faq .question");
+            // const pic1=document.getElementById('profil');
+            // pic1.addEventListener("mouseover", playBarkingSound);
+            questions.forEach(function(question) {
+                question.addEventListener("click", function() {
+                    console.log("Clicking on question");
+                    this.classList.toggle("active");
+                    const icon = this.querySelector(".question-icon i");
+                    if (this.classList.contains("active")) {
+                        icon.style.transform = "rotate(90deg)";
+                    } else {
+                        icon.style.transform = "rotate(0deg)";
+                    }
+                });
+            });
+        });
+
+
+
+       // Get the audio element
+   
+
+// Get all the images in the gallery
+
+
+// Function to pause the barking sound
+// function pauseBarkingSound() {
+//     barkingSound.pause();
+//     console.log("Pausing barking sound");
+//     // Reset the audio to the beginning so it starts from the beginning next time it's played
+//     barkingSound.currentTime = 0;
+// }
+
+// // Add event listeners to each image in the gallery
+// imagesArray.forEach(function(image) {
+//     image.addEventListener("mouseover", playBarkingSound);
+//     image.addEventListener("mouseout", pauseBarkingSound);
+// });
+
+// for (let i = 0; i < pic1.length; i++) {
+//         pic1[i].addEventListener("click", playBarkingSound);
+//     }
+
+
+    </script>
+    
+    
+    <style>
+        /* Ajoutez ici votre CSS personnalisé pour le style du site */
+        *{
+            font-family:Nunito;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+            font-size: 16px;
+            margin:0;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem;
+            position:fixed;
+            z-index: 2;
+            width:100%;
+            text-align: center;
+            display:flex ; 
+            align-items: center;
+            
+        }
+
+        nav {
+            background-color: #444;
+            padding: 0.5rem;
+            text-align: center;
+            
+            /*augmente l'écart entre les éléments*/
+            
+
+        }
+
+        .active2{
+            color: #ffd700;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 1rem;
+            flex-direction: column;
+            display: flex; /* Utiliser la flexbox pour aligner le texte et l'icône */
+    align-items: center;
+    flex:1;
+        }
+
+        nav a:hover {
+            color: #ffd700;
+        }
+
+        .paw-icon {
+            /* make 45 angle*/
+            transform: rotate(-45deg);
+            margin-right: 0.4rem;
+            
+        
+        }
+
+
+        
+
+        section {
+            padding: 2rem;
+            margin-bottom: -50px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 0.8rem;
+            text-align: center;
+            margin:0;
+            
+           
+            
+        }
+        .cercle-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            /* Utilisation de clip-path pour rogner l'image en cercle */
+            clip-path: circle(50% at 50% 50%);
+            float: left;
+            margin-right:50px;
+        }
+        #contact {
+            
+            margin-bottom: 10px;
+            
+        }
+        .galerie {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+         
+        .galerie a {
+            margin: 10px;
+            flex-basis: calc(33.33% - 20px);
+        }
+        .pic {
+        max-width: 100%;
+        height: auto;
+        }
+
+        .galerie a img:hover {
+            transform: scale(1.1);
+            cursor: pointer;
+        }
+       
+        #Facebook{
+            font-size: 50px;
+            color: #3b5998;
+            margin-right: 20px;
+            margin-bottom: -30px;
+        }
+
+        /* Effet hover pour le logo Facebook */
+        #Facebook:hover {
+            transform: scale(1.1); /* Agrandissement légèrement plus grand au survol */
+            cursor: pointer;
+        }
+        /* Style pour la FAQ - Accordéon */
+    #faq .accordion {
+        border: 1px solid #ccc;
+    }
+
+    #faq .question {
+        border-bottom: 1px solid #ccc;
+        cursor: pointer;
+        padding: 10px;
+    }
+
+    #faq .question h3 {
+        margin: 0;
+    }
+
+    #faq .answer {
+        display: none;
+        padding: 10px;
+    }
+
+    /* Style pour afficher la réponse lorsque la question est cliquée */
+    #faq .question.active {
+        background-color: #f2f2f2;
+    }
+    
+    #faq .question.active .answer {
+        display: block;
+    }
+    #faq {
+        margin-top: -80px;
+        margin-bottom: 10px;
+    }
+    ul li a {
+        /* Supprimer le soulignement des liens */
+        text-decoration: none;
+        /* Changer la couleur par défaut du lien */
+        color: black;
+    }
+    ul li a:hover {
+    
+    color: #0369ee;
+    }
+
+    /* Style spécifique au numéro de téléphone, email et adresse */
+    ul li a[href^="tel:"],
+    ul li a[href^="mailto:"],
+    ul li a[href^="https://www.google.com/maps/search/?api=1&query="] {
+        /* Masquer le texte du lien au survol */
+        text-indent: -9999px;
+        /* Masquer également le pointeur du curseur au survol */
+        cursor: default;
+    }
+    .telephone-btn {
+  /* Caractéristiques initiales du bouton */
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: rgb(228, 191, 30);
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+  margin-right: 50px;
+  
+}
+
+.telephone-btn:hover {
+  /* Caractéristiques au survol du bouton */
+  background-color: #333;
+  color: rgb(228, 191, 30);
+  border: 2px solid rgb(228, 191, 30);
+}
+/* Style pour le logo à gauche */
+.header-left {
+    flex: 1;
+    /*add a shadow white*/
+  
+   
+
+}
+
+
+
+.telephone-btn-phone {
+  /* Caractéristiques initiales du bouton */
+  display: none;
+  padding: 10px 20px;
+  background-color: rgb(228, 191, 30);
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+  
+  justify-content: center;
+  
+}
+
+
+
+/* Style pour la navigation au centre */
+.header-center {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+}
+
+/* Style pour le bouton téléphone à droite */
+.header-right {
+    flex: 1;
+    text-align: right;
+}
+
+.header-right-phone{
+    display:flex;
+    justify-content: center;
+}
+h2 {
+    font-size: 30px;
+    display: flex;
+  justify-content: center; /* Horizontally center the items */
+  align-items: center; /* Vertically center the items */
+}
+.paragraph-container {
+    max-width: 600px;
+    text-align:justify;
+
+}
+.centered{
+    display: flex;
+  justify-content: center; /* Horizontally center the items */
+  align-items: center; /* Vertically center the items */
+  
+}
+#presentation{
+    margin-bottom: 1px;
+
+
+}
+.question.open .question-icon i {
+    transform: rotate(90deg);
+}
+
+
+#scrollToTopButton {
+
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  background-color: rgb(228, 191, 30);
+  color: white;
+  padding: 16px;
+  border: none;
+  border-radius: 9px;
+  font-size: 16px;
+  cursor: pointer;
+  flex-direction: column;
+  border-radius: 50%;
+            /* Utilisation de clip-path pour rogner l'image en cercle */
+    clip-path: circle(50% at 50% 50%);
+
+}
+
+#scrollToTopButton:hover {
+  background-color: rgb(163, 138, 23);
+}
+.scroll-to-top-button i {
+    display: block;
+  
+}
+
+.services-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.services-list li {
+    margin-bottom: 10px;
+    padding-left: 25px;
+    position: relative;
+}
+
+.services-list i {
+    position: absolute;
+    left: 0;
+    top: 2px;
+}
+
+
+.servicesExtra {
+  display: flex;
+  justify-content: space-around; /* Pour espacer les images horizontalement */
+  align-items: center; /* Pour aligner les images verticalement au centre */
+}
+
+.image-container {
+  text-align: center; /* Pour centrer le contenu dans chaque conteneur d'image */
+  padding: 20px; /* Ajoutez un espace entre les images */
+}
+#bienetre{
+    margin-top: 30px;}
+
+@media (max-width: 750px) {
+  .servicesExtra {
+    flex-direction: column; /* Afficher les images en colonne */
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+ .banner-area {
+    background-image: url(images/fac2.jpg);
+    background-size: cover;
+    background-position: center;
+    width:auto;
+    top:100px;
+    height: 450px;
+    margin-top: 38px;
+    position:fixed;
+    width:100%;
+
+ }
+
+ .banner-area:after{
+    content:'';
+    position:absolute;
+    top:0;
+    left: 0;
+    display:block;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(228, 191, 30);
+    opacity: .3;
+    z-index: -1;
+ }
+
+ .banner-area h2{
+    
+    color: white;
+    
+    text-shadow: #333 2px 2px 0px;
+    
+
+ }
+ #TitlePhone{
+    font-size: 50px;
+ }
+ #SalonPhone{
+    font-size: 30px;
+ }
+
+ .content-banner{
+    align-items: center;
+    display: flex;
+    padding-top: 90px;
+ }
+
+.content-area{
+    position:relative;
+    top:600px;
+    width:100%;
+    z-index:3;
+    background-color: white;
+
+
+}
+header .icon {
+    display: none;
+}
+
+.header-centerPhone{
+    display: none;
+}
+.header-right-phone{
+    display: none;
+}
+
+@media (max-width: 750px) {
+    .header-center,.header-right{
+        display: none;
+    }
+    header .icon {
+    font-size: 35px;
+    display: block;
+    margin-right: 50px;
+    }
+
+    .telephone-btn-phone {
+    display:flex;
+    }
+    nav {
+            color: #fff;
+            background-color: #333;
+            text-decoration: none;
+            margin: 0 1rem;
+            flex-direction: column;
+            display: flex; /* Utiliser la flexbox pour aligner le texte et l'icône */
+    align-items: center;
+    flex:1;
+        }
+    .header-left {
+    flex: 1;
+    left:0;
+    margin-left:39px;
+    }
+
+    .header-centerPhone.responsive{
+        display:block;
+        
+
+    }
+    header {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem;
+            position:fixed;
+            z-index: 4;
+            width:100%;
+            text-align: center;
+            
+        }
+    .banner-area h2{
+    
+    color: white; 
+
+    text-shadow: #333 2px 2px 0px;
+    
+
+ }
+#TitlePhone{
+    font-size: 9vw;
+}
+#SalonPhone{
+    font-size: 5vw;
+}
+
+ section#presentation h2 {
+    font-size: 5vw;
+ }
+ .cercle-image {
+    margin-right: 0px;
+ }
+    
+ #scrollToTopButton:hover {
+  background-color: rgb(228, 191, 30);;
+}
+
+
+
+section#presentation .centered{
+  flex-direction: column;
+  text-align:justify;
+}
+section#presentation img{
+    margin-bottom: 20px;
+}
+
+
+section#contact .centered{
+    flex-direction: column;
+    
+}
+section#contact p{
+    text-align:center;
+}
+
+#bienetre{
+    margin-top: 0px;}
+
+
+
+
+}
+.header-right-phone{
+    display:flex ;
+}
+
+.animated-arrow {
+  animation: moveDown 0.6s infinite alternate; /* Animation 1 seconde, infinie et en alternance */
+  font-size: 25px;
+}
+
+
+
+@keyframes moveDown {
+  from {
+    transform: translateY(-18px); /* Position de départ */
+  }
+  to {
+    transform: translateY(-10px); /* Position d'arrivée (5px vers le bas) */
+  }
+}
+
+
+
+
+    </style>
+<meta name="description" content="Salon de toilettage expérimenté (bain,coupe,tonte) Nord,chien,chat,Nieppe,Armentières,toutes races">
+</head>
+
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-V5XFBZD1PE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-V5XFBZD1PE');
+</script>
+
+
+
+
+<body>
+    
+    <header >
+       
+        <div class="header-left">
+            <img src="./images/logo.png" alt="logo-caniche-royal-1" width="100px">
+        </div>
+        <nav class="header-center" id="myTopnav">
+            <a href="#accueil"><i class="fas fa-paw paw-icon"></i>Accueil</a>
+            <a href="#services"><i class="fas fa-paw paw-icon"></i>Services</a>
+            <a href="#presentation"><i class="fas fa-paw paw-icon"></i>Présentation</a>
+            <a href="#galeriesect"><i class="fas fa-paw paw-icon"></i>Galerie</a>
+            <a href="#contact"><i class="fas fa-paw paw-icon"></i>Contact</a>
+        </nav>
+        
+        <nav class="header-centerPhone" id="myTopnavPhone">
+            <a href="#accueil">Accueil</a>
+            <a href="#services">Services</a>
+            <a href="#presentation">Présentation</a>
+            <a href="#galeriesect">Galerie</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+
+            
+        </div>
+        <div class="icon"  onclick="FunctNav()">&#9776;</div>
+
+        
+
+
+
+
+
+
+
+        <div class="header-right">
+            <a href="tel:0320489189" class="telephone-btn">☎03.20.48.91.89</a>
+        </div>
+    </header>
+    <div class="banner-area">
+        <div class="content-banner"></div>
+            <h2 id="TitlePhone">Le Caniche Royal</h2>
+            <div class="header-right-phone">
+                <a href="tel:0320489189" class="telephone-btn-phone">☎03.20.48.91.89</a>
+            </div>
+            <h2 id="SalonPhone">Salon de toilettage à Nieppe</h2>
+        </div>
+    </div>
+    
+        
+        
+      
+      
+    <div class="content-area">
+        <section id="accueil">
+            
+            <h2>Accueil</h2>
+            
+            <div class="centered">
+            <p class="paragraph-container">Bienvenue dans votre salon de toilettage pour chiens et chat : <b>Le Caniche Royal</b> ! Localisé à Nieppe, nous sommes passionnés par le bien-être de vos amis à quatre pattes et nous offrons une gamme complète de services de toilettage pour les chiens et chats de toutes races.</p>
+        </div>
+
+            <!-- Ajoutez plus de contenu ici, comme des photos ou des informations sur votre salon -->
+        </section>
+
+    <section id="services">
+        <h2>Nos Services</h2>
+        <div class="centered">
+            <ul class="services-list">
+                <li><i class="fas fa-paw"></i> Coupe par tondeuse Aesculap (marque professionnelle)</li>
+                <li><i class="fas fa-paw"></i> Coupe au ciseau ✂️</li>
+                <li><i class="fas fa-paw"></i> Brossage et démêlage</li>
+                <li><i class="fas fa-paw"></i> Bain 🛁avec shampoing protéiné à l'huile de vison et l'aloé vera ou antiparasitaire <br>(uniquement pour chien)</li>
+                <li><i class="fas fa-paw"></i> Coupes de griffes</li>
+                <li><i class="fas fa-paw"></i> Brushing complet</li>
+                <li><i class="fas fa-paw"></i> Épilations et nettoyage des oreilles</li>
+                <li><i class="fas fa-paw"></i> Tour des pattes 🐾</li>
+                <li><i class="fas fa-paw"></i> Prise à domicile de votre animal (10km max et supplément de 5€)</li>
+            </ul>
+        </div>
+    
+
+    <div class="servicesExtra">
+        <div class="image-container">
+        <img src="images/1.png" alt="Image 1">
+        <h3>Coupe</h3>
+        <p>Profitez d'une coupe personnalisée avec des produits adaptés à la race et au type de poil de votre animal, tout en respectant le standard de la race et en apportant une touche de relooking.</p>
+        </div>
+        <div class="image-container">
+        <img src="images/2.png" alt="Image 2">
+        <h3>Certifications</h3>
+        <p>Confiez votre compagnon entre les mains d'une professionnelle qualifiée. Anne Gontier est diplômée en toilettage et a bénéficié d'une formation complète</p>
+        </div>
+        <div class="image-container">
+        <img src="images/3.png" alt="Image 3">
+        <h3>Professionnalisme</h3>
+        <p>Offrez à votre animal une expérience de toilettage avec une professionnelle dévouée, qui prend soin de vos compagnons à quatre pattes avec habileté, amour et passion.</p>
+        </div>
+        <div id="bienetre" class="image-container">
+        <img src="images/4.png" alt="Image 4">
+        <h3>Bien-être</h3>
+        <p>Votre fidèle ami sera choyé et dorloté lors de son toilettage, ce qui lui permettra de se détendre et d'être en meilleure santé.</p>
+        </div>
+    </div>
+    </section>
+
+
+    
+
+
+        
+        
+
+        <!-- <audio id="barking-sound" src="audios/dogsound.mp3"></audio>  -->
+        
+        <section id="presentation">
+            <!--ajoute une photo dans un cercle-->
+            <!--fait en sorte que la balise ci dessous soit a gauche du texte-->
+            <h2>Présentation - Votre Toiletteuse</h2>
+            <div class="centered">
+            <img id ='profil' src="images/profil.jpg" alt="Avatar" class="cercle-image" style="width:200px">
+            
+            
+            
+            <p id ='presentation' class="paragraph-container">Je suis Anne, la toiletteuse de votre salon de toilettage <b>Le Caniche Royal</b>. Avec plus de 23 années d'expérience dans le toilettage canin, je suis passionnée par le bien-être et le confort de chaque chien et chat que j'accueille dans mon salon.
+            Mon objectif est de faire en sorte que chaque séance de toilettage soit une expérience agréable pour votre animal, en utilisant des techniques douces et des produits adaptés à la peau et au pelage de chaque animal. Lors de mes prestations, je privilégie d'ailleurs la coupe au ciseau.</p>
+            <!-- Ajoutez plus d'informations sur vous en tant que toiletteuse -->
+        </div>
+        </section>
+       
+        <section id="galeriesect">
+            <h2>Galerie</h2>
+            
+            
+            <div class="galerie">
+                <a href="https://i.ibb.co/bNPDsjP/canicheblanc.jpg" data-lightbox="dogs" data-title="le caniche abricot">
+                    <img class='pic' src="https://i.ibb.co/bNPDsjP/canicheblanc.jpg" alt="Image 2">
+                </a>
+                <a href="https://i.ibb.co/vhvxY2K/berger.jpg" data-lightbox="dogs" data-title="le berger australien" >
+                    <img class='pic' src="https://i.ibb.co/vhvxY2K/berger.jpg" alt="Image 2">
+                </a>
+                <a href="https://i.ibb.co/Qftw0DX/cat.jpg" data-lightbox="dogs" data-title="le persan" data-lightbox="dogs" data-title="un spitz au bain">
+                    <img class='pic' src="https://i.ibb.co/Qftw0DX/cat.jpg" alt="Image 6">
+                </a>
+                <a href="https://i.ibb.co/0cKGjNB/spitz.jpg" data-lightbox="dogs" data-title="un spitz au bain">
+                    <img class='pic' src="https://i.ibb.co/0cKGjNB/spitz.jpg" alt="Image 3">
+                </a>
+                <a href="https://i.ibb.co/WH7TRZs/caniche.jpg" data-lightbox="dogs" data-title="le caniche noir">
+                    <img class='pic' src="https://i.ibb.co/WH7TRZs/caniche.jpg" alt="Image 4">
+                </a>
+                <a href="https://i.ibb.co/hcTD9gK/samo.jpg" data-lightbox="dogs" data-title="le samoyède" >
+                    <img id='samo' class='pic' src="https://i.ibb.co/hcTD9gK/samo.jpg" alt="Image 1">
+                </a>
+                
+                
+            </div>
+            <div style="display:flex; justify-content: center;">
+                <p style="font-size: 20px;" >Cliquer pour agrandir</p>
+                <p class="animated-arrow"> &#9757</p>
+             </div>
+        </section>
+        
+
+        <section id="contact">
+        
+                <h2>Contact</h2>
+                <div class="centered">
+                    <p>Pour prendre rendez-vous ou pour toutes autres informations, veuillez nous contacter :</p>
+                    <ul>
+                        <li><i class="fas fa-phone-alt"></i> <a href="tel:0320489189">03 20 48 91 89</a></li>
+                        <li><i class="far fa-envelope"></i> <a href="mailto:lecaniche.royal@orange.fr">lecaniche.royal@orange.fr</a></li>
+                        <li><i class="fas fa-map-marker-alt"></i> <a href="https://goo.gl/maps/M4MKvoo47gtc2gQWA">200 Rue Faidherbe, Nieppe 59850</a>.</li>
+                    </ul>
+                </div>
+            <div style="display:flex; align-items: center; justify-content: center;"> 
+                <a href="https://www.facebook.com/Anne59850/" target="_blank"><i id='Facebook' class="fab fa-facebook-square"></i></a>
+                <h2 id="MessageFB"> Rejoignez nous sur facebook !</h2>
+            </div>
+            
+            
+        </section>
+        <section id="faq">
+            <h2>FAQ</h2>
+            <div class="accordion">
+                <div class="question">
+                    <h3><span class="question-icon"><i class="fas fa-chevron-right"></i></span> Combien de temps dure un toilettage ?</h3>
+                    <div class="answer">
+                        <p>Cela dépend de l'état d'entretien et la taille de votre chien ! Mais en moyenne, cela dure entre  1 et 2 heures.</p>
+                    </div>
+                </div>
+        
+                <div class="question">
+                    <h3><span class="question-icon"><i class="fas fa-chevron-right"></i></span> Quand êtes-vous ouvert ?</h3>
+                    <div class="answer">
+                        <p>Du mardi au samedi de 9h à 12h et de 14h à 18h.</p>
+                    </div>
+                </div>
+        
+                <div class="question">
+                    <h3><span class="question-icon"><i class="fas fa-chevron-right"></i></span> Est-ce que vous proposez des réductions pour les clients fidèles ?</h3>
+                    <div class="answer">
+                        <p>Oui, nous offrons des réductions avantageuses pour nos clients fidèles ! Si vous venez au salon 4 fois au cours d'une année, vous bénéficierez d'une réduction de 50% sur le prochain toilettage.</p>
+                        <p> Nous proposons également 10% de réduction si vous faites toilettés 2 chiens ou plus.</p>
+                    </div>
+                </div>
+                <div class="question">
+                    <h3><span class="question-icon"><i class="fas fa-chevron-right"></i></span> Quels sont les moyens de paiements acceptés ?</h3>
+                    <div class="answer">
+                        <p>Nous prenons uniquement les paiements en espèces et en chèques.</p>
+                        
+                    </div>
+                </div>
+        
+                <!-- Add more questions and answers here -->
+            </div>
+        </section>
+
+        
+    
+        <!-- <div id="menuPhone">
+            <a href="javascript:void(0);" class="close-icon" onclick="closeMenu()">
+                <i class="fas fa-times"></i>
+            </a>
+            <nav class="header-center" id="myTopnav">
+                <a href="#accueil"></i>Accueil</a>
+                <a href="#services"></i>Services</a>
+                <a href="#presentation"></i>Présentation</a>
+                <a href="#galeriesect"></i>Galerie</a>
+                <a href="#contact"></i>Contact</a>
+            </nav>
+        </div> -->
+        
+        
+
+
+
+
+
+        <button id="scrollToTopButton" onclick="scrollToTop()" class="scroll-to-top-button">
+            <i class="fas fa-chevron-up"></i>
+            <i class="fas fa-chevron-up"></i>
+        </button>
+        
+
+
+        <footer>
+            <p>Tous droits réservés &copy; Le Caniche Royal - Salon de toilettage pour chiens et chats</p>
+        </footer>
+    </div>
+</body>
+
+</html>
+>>>>>>> 9e60ebc573a28d825bed33dc5143ae39a467a01b
